@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "complimenter": "github:Crilum/complimenter",
+    "discord.js": "^14.7.1"
+  }
+}
