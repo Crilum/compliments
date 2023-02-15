@@ -68,6 +68,7 @@ function check_compliment_is_nice(compliment) {
         "virtually",
         "somewhat",
         "terribly",
+        "faintly",
     ]
     for (let i = 0; i < badWords.length; i++) {
         if (compliment.includes(badWords[i])) {
