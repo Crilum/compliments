@@ -3,7 +3,7 @@ const { token, clientId, guildID } = require("./config.json");
 const http = require('http');
 const https = require('https');
 var complimenter = require("complimenter");
-import chalk from 'chalk';
+const {chalk} = require('chalk');
 
 const commands = [
     {
