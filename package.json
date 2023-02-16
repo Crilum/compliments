@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chalk": "^5.2.0",
     "complimenter": "github:Crilum/complimenter",
     "discord.js": "^14.7.1"
   }

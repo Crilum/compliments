@@ -3,6 +3,7 @@ const { token, clientId, guildID } = require("./config.json");
 const http = require('http');
 const https = require('https');
 var complimenter = require("complimenter");
+const chalk = require('chalk');
 
 const commands = [
     {
@@ -43,7 +44,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', () => {
-    console.log(`logged in as ${client.user.tag}!`);
+    console.log(chalk.yellow(`Ready! Logged in as ${client.user.tag}`));
 });
 
 // Start bot code
@@ -56,6 +57,10 @@ function current_date() {
     let date = `${month}-${day}-${year}`
     let time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds() + ":" + currentDate.getMilliseconds();
     return `${time} ${date}>> `
+}
+
+function log(message) {
+    console.log(chalk.blue(current_date()),chalk.yellow(message));
 }
 
 function check_compliment_is_nice(compliment) {
@@ -72,7 +77,7 @@ function check_compliment_is_nice(compliment) {
     ]
     for (let i = 0; i < badWords.length; i++) {
         if (compliment.includes(badWords[i])) {
-            console.log(current_date(), "Includes bad word:", badWords[i])
+            log("Includes bad word:", badWords[i])
             return 1
         }
     };
@@ -80,22 +85,22 @@ function check_compliment_is_nice(compliment) {
 }
 
 function compliment_random(self) {
-    console.log(current_date(), "Generating random compliment...")
-    console.log("")
+    log("Generating random compliment...")
+    log("")
     let userID = self.options.getString('person');
     self.reply(userID + ", " + complimenter());
 }
 
 function compliment_nice(self) {
-    console.log(current_date(), "Generating nice random compliment...")
-    console.log("")
+    log("Generating nice random compliment...")
+    log("")
     let userID = self.options.getString('person');
 
     let compliment = complimenter();
     let a = check_compliment_is_nice(compliment)
     while (a == 1) {
-        console.log(current_date(), "Regenerating compliment...")
-        console.log("")
+        log("Regenerating compliment...")
+        log("")
         compliment = complimenter();
         a = check_compliment_is_nice(compliment)
     }
