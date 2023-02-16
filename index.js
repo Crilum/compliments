@@ -43,7 +43,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`logged in as ${client.user.tag}!`);
 });
 
 // Start bot code
