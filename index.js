@@ -3,7 +3,6 @@ const { token, clientId, guildID } = require("./config.json");
 const http = require('http');
 const https = require('https');
 var complimenter = require("complimenter");
-const {chalk} = require('chalk');
 
 const commands = [
     {
@@ -44,10 +43,47 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', () => {
-    console.log(chalk.yellow(`Ready! Logged in as ${client.user.tag}`));
+    console.log(colorize("green", "Ready!"), colorize("yellow", `Logged in as ${client.user.tag}`));
 });
 
 // Start bot code
+
+badWords = [
+    "almost",
+    "I am",
+    "nearly",
+    "kind of",
+    "practically",
+    "virtually",
+    "somewhat",
+    "terribly",
+    "faintly",
+]
+
+const colors = {
+    yellow: "\x1b[33m",
+    blue: "\x1b[36m",
+    red: "\x1b[31m",
+    grey: "\x1b[38;5;254m",
+    green: "\x1b[38;5;47m",
+}
+
+function colorize(color, message) {
+    if (color == "blue") {
+        return `${colors.blue}${message}\x1b[0m`
+    } else if (color == "yellow") {
+        return `${colors.yellow}${message}\x1b[0m`
+    } else if (color == "red") {
+        return `${colors.red}${message}\x1b[0m`
+    } else if (color == "grey") {
+        return `${colors.grey}${message}\x1b[0m`
+    } else if (color == "green") {
+        return `${colors.green}${message}\x1b[0m`
+    } else {
+        console.log("Garbage color argument!")
+        return `${message}`
+    }
+}
 
 function current_date() {
     let currentDate = new Date();
@@ -60,21 +96,10 @@ function current_date() {
 }
 
 function log(message) {
-    console.log(chalk.blue(current_date()),chalk.yellow(message));
+    console.log(colorize("grey", current_date()), colorize("blue", message));
 }
 
 function check_compliment_is_nice(compliment) {
-    badWords = [
-        "almost",
-        "I am",
-        "nearly",
-        "kind of",
-        "practically",
-        "virtually",
-        "somewhat",
-        "terribly",
-        "faintly",
-    ]
     for (let i = 0; i < badWords.length; i++) {
         if (compliment.includes(badWords[i])) {
             log("Includes bad word:", badWords[i])
@@ -99,7 +124,7 @@ function compliment_nice(self) {
     let compliment = complimenter();
     let a = check_compliment_is_nice(compliment)
     while (a == 1) {
-        log("Regenerating compliment...")
+        log(current_date(), "Regenerating compliment...")
         log("")
         compliment = complimenter();
         a = check_compliment_is_nice(compliment)
