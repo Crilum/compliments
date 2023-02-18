@@ -119,7 +119,7 @@ function compliment_random(self) {
 }
 
 function compliment_nice(self) {
-    log("Generating nice random compliment...")
+    log("Generating random nice compliment...")
     log("")
     let userID = self.options.getString('person');
 
