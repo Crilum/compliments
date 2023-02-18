@@ -13,7 +13,7 @@ cd compliments
 ```
 echo '{
     "token": "[your bot token]",
-    "clientId": "[yout client ID]"
+    "clientId": "[your client ID]"
 }' > config.json
 ```
 
