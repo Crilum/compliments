@@ -95,7 +95,7 @@ function current_date() {
     let year = currentDate.getFullYear();
     let date = `${month}-${day}-${year}`
     let time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds() + ":" + currentDate.getMilliseconds();
-    return `${time} ${date}>> `
+    return `${time} ${date} ~ `
 }
 
 function log(message) {
