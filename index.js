@@ -126,7 +126,7 @@ function compliment_nice(self) {
     let compliment = complimenter();
     let a = check_compliment_is_nice(compliment)
     while (a == 1) {
-        log(current_date(), "Regenerating compliment...")
+        log("Regenerating compliment...")
         log("")
         compliment = complimenter();
         a = check_compliment_is_nice(compliment)
