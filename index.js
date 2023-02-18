@@ -117,7 +117,7 @@ function compliment_random(self) {
     let userID = self.options.getString('person');
     let compliment_message = userID + ", " + complimenter();
     self.reply(compliment_message);
-    log("Compliment sent: " + compliment_message)
+    log('Compliment sent: "' + compliment_message + '"')
     log("")
 }
 
@@ -135,7 +135,7 @@ function compliment_nice(self) {
     }
     let compliment_message = userID + ", " + compliment;
     self.reply(compliment_message);
-    log("Compliment sent: " + compliment_message)
+    log('Compliment sent: "' + compliment_message + '"')
     log("")
 }
 
