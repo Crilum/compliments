@@ -58,6 +58,8 @@ badWords = [
     "somewhat",
     "terribly",
     "faintly",
+    "fairly",
+    "deftly",
 ]
 
 const colors = {
@@ -102,7 +104,7 @@ function log(message) {
 function check_compliment_is_nice(compliment) {
     for (let i = 0; i < badWords.length; i++) {
         if (compliment.includes(badWords[i])) {
-            log("Includes bad word:", badWords[i])
+            log(`Includes bad word: ${badWords[i]}`)
             return 1
         }
     };
