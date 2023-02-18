@@ -68,21 +68,22 @@ const colors = {
     red: "\x1b[31m",
     grey: "\x1b[38;5;254m",
     green: "\x1b[38;5;47m",
+    NC: "\x1b[0m"
 }
 
 function colorize(color, message) {
     if (color == "blue") {
-        return `${colors.blue}${message}\x1b[0m`
+        return `${colors.blue}${message}${colors.NC}`
     } else if (color == "yellow") {
-        return `${colors.yellow}${message}\x1b[0m`
+        return `${colors.yellow}${message}${colors.NC}`
     } else if (color == "red") {
-        return `${colors.red}${message}\x1b[0m`
+        return `${colors.red}${message}${colors.NC}`
     } else if (color == "grey") {
-        return `${colors.grey}${message}\x1b[0m`
+        return `${colors.grey}${message}${colors.NC}`
     } else if (color == "green") {
-        return `${colors.green}${message}\x1b[0m`
+        return `${colors.green}${message}${colors.NC}`
     } else {
-        console.log("Garbage color argument!")
+        console.log(`${colors.yellow}Warning: ${colors.red}Garbage color argument!${colors.NC}`)
         return `${message}`
     }
 }
