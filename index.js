@@ -113,15 +113,16 @@ function check_compliment_is_nice(compliment) {
 }
 
 function compliment_random(self) {
+    log("")
     log("Generating random compliment...")
     let userID = self.options.getString('person');
     let compliment_message = userID + ", " + complimenter();
     self.reply(compliment_message);
     log('Compliment sent: "' + compliment_message + '"')
-    log("")
 }
 
 function compliment_nice(self) {
+    log("")
     log("Generating random nice compliment...")
     let userID = self.options.getString('person');
 
@@ -136,7 +137,6 @@ function compliment_nice(self) {
     let compliment_message = userID + ", " + compliment;
     self.reply(compliment_message);
     log('Compliment sent: "' + compliment_message + '"')
-    log("")
 }
 
 client.on('interactionCreate', async interaction => {
