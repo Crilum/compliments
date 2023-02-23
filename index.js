@@ -134,7 +134,6 @@ function compliment_nice(self) {
     let a = check_compliment_is_nice(compliment)
     while (a == 1) {
         log("Regenerating compliment...")
-        log("")
         compliment = complimenter();
         a = check_compliment_is_nice(compliment)
     }
