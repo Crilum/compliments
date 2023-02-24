@@ -25,6 +25,16 @@ const commands = [
             "required": "true",
         }],
     },
+    {
+        name: 'get-regretted',
+        description: 'Absolutely roast someone 😈',
+        options: [{
+            "name": "person",
+            "description": "Roast this person",
+            "type": 3,
+            "required": "true",
+        }],
+    },
 ];
 
 const rest = new REST({ version: '10' }).setToken(token);
@@ -142,6 +152,23 @@ function compliment_nice(self) {
     log('Compliment sent: "' + compliment_message + '"')
 }
 
+function get_regretted(self) {
+    log("")
+    log("Generating random roast...")
+    let userID = self.options.getString('person');
+
+    let roast = complimenter();
+    let a = check_compliment_is_nice(roast)
+    while (a == 0) {
+        log("Regenerating compliment...")
+        roast = complimenter();
+        a = check_compliment_is_nice(roast)
+    }
+    let compliment_message = userID + ", " + roast;
+    self.reply(compliment_message);
+    log('Roast sent: "' + compliment_message + '"')
+}
+
 client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
@@ -151,6 +178,10 @@ client.on('interactionCreate', async interaction => {
 
     if (interaction.commandName === 'compliment') {
         await compliment_nice(interaction);
+    }
+
+    if (interaction.commandName === 'get-regretted') {
+        await get_regretted(interaction);
     }
 });
 
