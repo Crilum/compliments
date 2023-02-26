@@ -58,7 +58,7 @@ client.on('ready', () => {
 
 // Start bot code
 
-badWords = [
+const badWords = [
     "almost",
     "I am",
     "nearly",
@@ -74,6 +74,30 @@ badWords = [
     "nose",
     "Armpit Hair",
     "typos",
+    "acceptable",
+    "breakable",
+    "combustible",
+    "durable",
+    "flammable",
+    "flexible",
+    "forgettable",
+    "illegible",
+    "impeachable",
+    "implausible",
+    "improbable",
+    "laughable",
+    "managable",
+    "questionable",
+    "tolerable",
+    "unacceptable",
+    "unamiable",
+    "uncategorizable",
+    "eatable",
+    "uneatable",
+    "unlovable",
+    "unvaluable",
+    "weird",
+    "crappy",
 ]
 
 const colors = {
