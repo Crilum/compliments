@@ -51,52 +51,10 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', () => {
-    console.log(colorize("green", "Ready!"), colorize("yellow", `Logged in as ${client.user.tag} or ${client.user.id}`));
+    console.log(colorize("green", "Ready!"), colorize("yellow", `Logged in as ${client.user.tag}`));
 });
 
 // Start bot code
-
-const badWords = [
-    "almost",
-    "I am",
-    "nearly",
-    "kind of",
-    "practically",
-    "virtually",
-    "somewhat",
-    "terribly",
-    "faintly",
-    "fairly",
-    "deftly",
-    "1 out of 10",
-    "nose",
-    "Armpit Hair",
-    "typos",
-    "acceptable",
-    "breakable",
-    "combustible",
-    "durable",
-    "flammable",
-    "flexible",
-    "forgettable",
-    "illegible",
-    "impeachable",
-    "implausible",
-    "improbable",
-    "laughable",
-    "managable",
-    "questionable",
-    "tolerable",
-    "unacceptable",
-    "unamiable",
-    "uncategorizable",
-    "eatable",
-    "uneatable",
-    "unlovable",
-    "unvaluable",
-    "weird",
-    "crappy",
-]
 
 const colors = {
     yellow: "\x1b[33m",
