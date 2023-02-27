@@ -138,21 +138,11 @@ function log(message) {
     console.log(colorize("grey", current_date()), colorize("blue", message));
 }
 
-function check_compliment_is_nice(compliment) {
-    for (let i = 0; i < badWords.length; i++) {
-        if (compliment.includes(badWords[i])) {
-            log(`Includes bad phrase: ${badWords[i]}`)
-            return 1
-        }
-    };
-    return 0
-}
-
 function compliment_random(self) {
     log("")
     log("Generating random compliment...")
     let userID = self.options.getString('person');
-    let compliment_message = userID + ", " + complimenter();
+    let compliment_message = userID + ", " + complimenter("random");
     self.reply(compliment_message);
     log('Compliment sent: "' + compliment_message + '"')
 }
@@ -162,13 +152,7 @@ function compliment_nice(self) {
     log("Generating random nice compliment...")
     let userID = self.options.getString('person');
 
-    let compliment = complimenter();
-    let a = check_compliment_is_nice(compliment)
-    while (a == 1) {
-        log("Regenerating compliment...")
-        compliment = complimenter();
-        a = check_compliment_is_nice(compliment)
-    }
+    let compliment = complimenter("nice");
     let compliment_message = userID + ", " + compliment;
     self.reply(compliment_message);
     log('Compliment sent: "' + compliment_message + '"')
@@ -179,13 +163,7 @@ function get_regretted(self) {
     log("Generating random roast...")
     let userID = self.options.getString('person');
 
-    let roast = complimenter();
-    let a = check_compliment_is_nice(roast)
-    while (a == 0) {
-        log("Regenerating compliment...")
-        roast = complimenter();
-        a = check_compliment_is_nice(roast)
-    }
+    let roast = complimenter("roast");
     let compliment_message = userID + ", " + roast;
     self.reply(compliment_message);
     log('Roast sent: "' + compliment_message + '"')
