@@ -1,7 +1,5 @@
 const { REST, Routes, ActionRowBuilder, Base, ButtonBuilder, ButtonStyle, Events, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, Client, GatewayIntentBits, Message, GuildMemberManager, BaseChannel, SelectMenuBuilder, User } = require('discord.js');
 const { token, clientId, guildID } = require("./config.json");
-const http = require('http');
-const https = require('https');
 var complimenter = require("complimenter");
 
 const commands = [
@@ -53,7 +51,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', () => {
-    console.log(colorize("green", "Ready!"), colorize("yellow", `Logged in as ${client.user.tag}`));
+    console.log(colorize("green", "Ready!"), colorize("yellow", `Logged in as ${client.user.tag} or ${client.user.id}`));
 });
 
 // Start bot code
