@@ -144,3 +144,5 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.login(token);
+
+module.exports = "./index.js";
