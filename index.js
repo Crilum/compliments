@@ -1,5 +1,5 @@
 const { REST, Routes, ActionRowBuilder, Base, ButtonBuilder, ButtonStyle, Events, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, Client, GatewayIntentBits, Message, GuildMemberManager, BaseChannel, SelectMenuBuilder, User } = require('discord.js');
-const { token, clientId, guildID } = require("./config.json");
+const { token, clientId } = require("./config.json");
 var complimenter = require("complimenter");
 
 const commands = [
